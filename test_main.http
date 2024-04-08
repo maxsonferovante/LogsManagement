@@ -1,0 +1,32 @@
+# Test your FastAPI endpoints
+
+
+POST http://127.0.0.1:8000/logs
+Content-Type: application/json
+
+{
+  "log": "This is a log message",
+  "tag": "DEBUG"
+}
+###
+
+GET http://127.0.0.1:8000/logs/2
+Accept: application/json
+###
+
+
+GET http://127.0.0.1:8000/logs/all
+Content-Type: application/json
+Accept: application/json
+###
+
+GET http://127.0.0.1:8000/logs/tags/available
+Content-Type: application/json
+Accept: application/json
+###
+
+
+GET http://127.0.0.1:8000/logs/tag/DEBUG/count
+Content-Type: application/json
+Accept: application/json
+###

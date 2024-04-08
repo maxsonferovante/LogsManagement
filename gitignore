@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules/
+dist/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+mock.json
+config.ovpn
+.idea/httpRequests
