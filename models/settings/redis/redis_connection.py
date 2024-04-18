@@ -18,3 +18,6 @@ class RedisConnectionHandle:
 
     def get_conn(self) -> Redis:
         return self.__connection
+    
+
+redis_connection_handle = RedisConnectionHandle()
