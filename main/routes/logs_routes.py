@@ -11,7 +11,7 @@ event_route_blueprint = Blueprint("log_route", __name__)
 @event_route_blueprint.route("/logs", methods=["POST"])
 def add_log():
     try:
-        http_request = HttpRequest(body=request.json)
+        http_request = HttpRequest(body=request.json, param=request.args.to_dict()) 
         logs_handler = LogsHandler()
 
         http_response = logs_handler.add_log(http_request)
