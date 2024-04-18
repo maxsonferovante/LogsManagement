@@ -1,17 +1,29 @@
 from models.repository.logs_repository import LogsRepository
+
+from models.settings.redis.redis_connection import redis_connection_handle
+from models.repository.redis_repository import RedisRepository
 from errors.error_types.http_not_found import HttpNotFoundError
 
 from http_types.http_request import HttpRequest
 from http_types.http_response import HttpResponse
 
+from datetime import datetime
 
 class LogsHandler:
     def __init__(self):
         self.__logs_repository = LogsRepository()
 
+        self.__logs_redis_repository = RedisRepository(
+            redis_connection_handle.connect()
+        )
+
     def add_log(self, resqust: HttpRequest) -> HttpResponse:
         body = resqust.body
-        self.__logs_repository.add_log(body)
+        params = resqust.param
+        
+        field = "add_log_" + datetime.now().strftime("%Y-%m-%d %H:%M:%S:%f")
+
+        self.__logs_redis_repository.insert_hash(params, field, body)
 
         return HttpResponse(
             status_code=201,
