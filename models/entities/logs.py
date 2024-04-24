@@ -11,7 +11,7 @@ class Logs(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     log = Column(String, nullable=False)
     tag = Column(Enum("INFO", "ERROR", "WARNING", "DEBUG"), nullable=False)
-    created_at = Column(DateTime, onupdate=True, default=datetime.datetime.now)
+    created_at = Column(DateTime, onupdate=True, default=datetime.datetime.now)    
     updated_at = Column(DateTime, onupdate=True, default=datetime.datetime.now)
 
     def __repr__(self):
