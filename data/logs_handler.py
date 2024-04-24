@@ -21,13 +21,13 @@ class LogsHandler:
         body = resqust.body
         params = resqust.param
         
-        field = "add_log_" + datetime.now().strftime("%Y-%m-%d %H:%M:%S:%f")
-
-        self.__logs_redis_repository.insert_hash(params, field, body)
+        response = self.__logs_redis_repository.insert(params, body)
 
         return HttpResponse(
             status_code=201,
-            body={"message": "Log added successfully"}
+            body={"message": "Log added successfully",
+                  "log_id": response
+                  }
         )
 
     def get_log_by_id(self, request: HttpRequest) -> HttpResponse:
