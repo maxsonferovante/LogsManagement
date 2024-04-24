@@ -12,6 +12,7 @@ Este projeto implementa uma API em Flask para o gerenciamento de logs, utilizand
 ## Tecnologias Utilizadas
 - **Flask**: Framework web usado para construir a API.
 - **Redis**: Utilizado como sistema de armazenamento em cache.
+- **SQLAlchemy**: Utilizando como ORM para interação com o banco de dados
 - **SQL (Banco de Dados Relacional)**: Utilizado para armazenamento permanente de logs.
 
 ## Como Usar
@@ -21,6 +22,7 @@ Antes de iniciar, certifique-se de ter instalado:
 - Python 3.6+
 - Flask
 - Redis
+- SQLAlchemy
 - Um cliente SQL compatível com sua base de dados relacional
 
 ### Configuração
